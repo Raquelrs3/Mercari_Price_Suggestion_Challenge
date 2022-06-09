@@ -5,7 +5,7 @@
 # Previsão de Preço de Vendas da Loja Mercari
 
 
-Este é um projeto realizado com dados públicos disponibilizados pela empresa na plataforma do [KAGGLE][(https://www.kaggle.com/c/mercari-price-suggestion-challenge/data).]
+Este é um projeto realizado com dados públicos disponibilizados pela empresa na plataforma do [KAGGLE](https://www.kaggle.com/datasets/manchitas/mercaritrain).
 
 
 ## 1. Problema de Negócio
@@ -33,37 +33,25 @@ Os clientes da empresa.
  * Mapeamento de todos os possíveis problems.
 
 
-##### Passo 01 - Descrição dos dados:
+##### Passo 01 - Descrição dos dados: Conhecimento dos dados, tipos, métricas estatísticas para identificar outliers, analise das métricas estatísticas e ajustes em features do dataset (preenchimento de NA's).
 
 
-##### Passo 02 - Feature Engineering:
+##### Passo 02 - Feature Engineering: Desenvolvimento de mapa mental para analisar o fenômeno, as variáveis e os principais aspectos que impactam cada uma delas. 
 
 
-##### Passo 03 - Filtragem dos dados:
+##### Passo 03 - Filtragem dos dados: Filtragem das linhas e excluir as colunas que não são relevantes para o modelo ou não fazem parte do escopo do negócio. EX: Dias em que as lojas estavam fevhadas ou inoperantes.
 
 
-##### Passo 04 - Análise Exploratória dos dados:
+##### Passo 04 - Análise Exploratória dos dados: Exploração dos dados para encontrar insights.
 
 
-##### Passo 05 - Preparação dos dados:
+##### Passo 05 - Preparação dos dados: Preparação para as aplicações de modelos de machine learning.
 
 
-##### Passo 06 - Seleção de Features:
+##### Passo 06 - Seleção de Features: Seleção dos melhores atributos para treinar o modelo. Utilizamos o algoritmo Boruta para essa seleção.
 
 
-##### Passo 07 - Modelagem de Machine Learning:
-
-
-##### Passo 08 - Hyperparameter Fine Tunning:
-
-
-##### Passo 09 - Tradução e interpretação de erros:
-
-
-##### Passo 10 - Deploy do modelo em produção:
-
-
-##### Passo 11 - Planilha Google:
+##### Passo 07 - Modelagem de Machine Learning: Foram realizados testes e treinamentos de alguns modelos de machine learning, para possibilitar a comparação da performance e escolha do modelo ideal para o projeto. Foi utilizada a técnica de Cross Validation para garantir a performance real sobre os dados selecionados.
 
 
 ## 4. Entendendo os Dados
@@ -71,19 +59,14 @@ Os clientes da empresa.
 
 | VARIÁVEL  |  DEFINIÇÃO  |
 | ------------------- | ------------------- |
-|  Id	 |  Identificador único do cliente.|
-|  Gender |  Gênero do cliente.|
-|Age	| Idade do cliente.|
-|Driving_License	| 0, o cliente não tem permissão para dirigir e 1, o cliente tem para dirigir ( CNH – Carteira Nacional de Habilitação ).|
-|Region_Code | Código da região do cliente.|
-|Previously_Insured | 0, o cliente não tem seguro de automóvel e 1, o cliente já tem seguro de automóvel.|
-|Vehicle_Age | Idade do veículo.|
-|Vehicle_Damage | 0, cliente nunca teve seu veículo danificado no passado e 1, cliente já teve seu veículo danificado no passado.|
-|Annual_Premium | Quantidade que o cliente pagou à empresa pelo seguro de saúde anual.|
-|Policy_Sales_Channel | Código anônimo para o canal de contato com o cliente.|
-|Vintage | Número de dias que o cliente se associou à empresa através da compra do seguro de saúde.|
-|Response | 0, o cliente não tem interesse e 1, o cliente tem interesse.|
-
+|  Train_id or Test_id	 |  The id of the listing.|
+|  Name |  the title of the listing. Note that we have cleaned the data to remove text that look like prices (e.g. $20) to avoid leakage. These removed prices are represented as [rm].|
+|Item_condition_id	| The condition of the items provided by the seller.|
+|Category_name	| category of the listing.|
+|Brand_name | Código da região do cliente.|
+|Price | the price that the item was sold for. This is the target variable that you will predict. The unit is USD. This column doesn't exist in test.tsv since that is what you will predict.|
+|Shipping | 1 if shipping fee is paid by seller and 0 by buyer.|
+|Item_description | the full description of the item. Note that we have cleaned the data to remove text that look like prices (e.g. $20) to avoid leakage. These removed prices are represented as [rm].|
 
 
 ## 5. Performance do Modelo
